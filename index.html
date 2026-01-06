@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Nexus AI – Free vs Paid Comparisons</title>
+<meta name="description" content="Discover the best AI tools for students, writing, video, animation, productivity, coding, SEO, and more. Compare free vs paid plans with features, limits, ratings, and affiliate deals."/>
+<style>
+  /* =========================================================
+     TOKENS & BASE
+     ========================================================= */
+  :root{
+    --bg:#0f1117; --surface:#121520; --card:#171a26;
+    --text:#e7ebf3; --muted:#a3adc2;
+    --brand:#7c5cff; --brand-2:#22d3ee;
+    --success:#22c55e; --paid:#a78bfa;
+    --ring:0 0 0 3px rgb(124 92 255 / .25);
+    --radius:14px; --shadow-1:0 6px 24px rgba(0,0,0,.25); --shadow-2:0 12px 30px rgba(0,0,0,.35);
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:#0f1117}
+  a{color:inherit;text-decoration:none} img{max-width:100%;display:block} button{font:inherit;color:inherit}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  /* =========================================================
+     HEADER
+     ========================================================= */
+  header{position:sticky;top:0;z-index:40;background:rgba(16,18,27,.8);backdrop-filter:blur(10px);border-bottom:1px solid rgba(124,92,255,.15)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+  .logo-mark{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 180deg,var(--brand),var(--brand-2),#2dd4bf,var(--brand));box-shadow:var(--shadow-1)}
+  nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+  nav a{color:var(--muted);padding:8px 10px;border-radius:10px}
+  nav a:hover{color:var(--text);background:rgba(124,92,255,.14)}
+  .hamburger{display:none}
+  @media (max-width:780px){
+    nav ul{display:none}
+    .hamburger{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:10px;border:1px solid rgba(124,92,255,.25);background:#0e1220}
+    .mobile-nav{display:none;padding:8px 0 12px}
+    .mobile-nav ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .mobile-nav a{display:block;padding:10px 12px;border-radius:10px;border:1px solid rgba(124,92,255,.18);background:#0e1220;color:var(--muted)}
+  }
+
+  /* =========================================================
+     HERO + SEARCH
+     ========================================================= */
+  .hero{padding:56px 0 28px;border-bottom:1px solid rgba(124,92,255,.15);
+    background:
+      radial-gradient(80% 60% at 10% 0%, rgba(124,92,255,.12), transparent 60%),
+      radial-gradient(60% 50% at 100% 10%, rgba(34,211,238,.12), transparent 60%)}
+  .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.1;margin:0 0 14px}
+  .hero p{color:var(--muted);margin:0 0 26px;max-width:740px}
+  .search-wrap{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;background:var(--card);
+    border:1px solid rgba(124,92,255,.18);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow-1);position:relative}
+  .search{display:flex;align-items:center;gap:8px;flex:1;background:#0e1220;border:1px solid rgba(124,92,255,.25);padding:10px 12px;border-radius:10px;position:relative}
+  .search input{flex:1;border:none;outline:none;background:transparent;color:var(--text)}
+  .segmented{display:inline-flex;background:#0e1220;border:1px solid rgba(124,92,255,.25);border-radius:10px;padding:4px}
+  .segmented button{border:none;background:transparent;color:var(--muted);padding:8px 12px;border-radius:8px;cursor:pointer}
+  .segmented button[aria-pressed="true"]{background:linear-gradient(180deg, rgba(124,92,255,.25), rgba(124,92,255,.15));color:var(--text)}
+
+  /* Live search results dropdown */
+  .results{position:absolute;top:100%;left:0;right:0;margin-top:8px;background:#0e1220;border:1px solid rgba(124,92,255,.3);
+    border-radius:12px;box-shadow:var(--shadow-2);max-height:340px;overflow:auto;display:none;z-index:20}
+  .results[aria-expanded="true"]{display:block}
+  .result-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid rgba(124,92,255,.12);cursor:pointer}
+  .result-item:last-child{border-bottom:none}
+  .result-item[aria-selected="true"], .result-item:hover{background:rgba(124,92,255,.14)}
+  .result-kind{font-size:12px;color:var(--muted)}
+  .logo-blob{width:28px;height:28px;border-radius:8px;background:linear-gradient(180deg, rgba(124,92,255,.5), rgba(124,92,255,.2));display:grid;place-items:center;font-weight:800;font-size:12px}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 8px;border-radius:999px;font-weight:700}
+  .badge.free{background:rgba(34,197,94,.18);color:#a7f3d0;border:1px solid rgba(34,197,94,.35)}
+  .badge.paid{background:rgba(167,139,250,.18);color:#e9d5ff;border:1px solid rgba(167,139,250,.35)}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;background:#0e1220;border:1px solid rgba(124,92,255,.25);color:var(--muted);font-size:12px}
+
+  /* Sections, grid & tables */
+  .section{padding:44px 0}
+  .section h2{margin:0 0 12px;font-size:clamp(22px,3vw,30px)}
+  .section .sub{color:var(--muted);margin-bottom:18px}
+  .cat-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit, minmax(180px,1fr))}
+  .cat{display:flex;align-items:center;gap:14px;padding:14px;border-radius:var(--radius);border:1px solid rgba(124,92,255,.18);background:var(--card);box-shadow:var(--shadow-1);cursor:pointer;transition:transform .15s ease, box-shadow .15s ease}
+  .cat:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+  .cat .icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(124,92,255,.18)}
+  .cat span{font-weight:600}
+
+  .table-wrap{margin-top:18px;border-radius:var(--radius);border:1px solid rgba(124,92,255,.18);background:var(--card);box-shadow:var(--shadow-1);overflow:hidden}
+  .table-wrap header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(124,92,255,.18);background:#141826}
+  .table-wrap header h3{margin:0;font-size:18px}
+  .verdict{color:var(--brand-2);font-weight:600;font-size:14px}
+  .table{width:100%;border-collapse:separate;border-spacing:0;overflow:auto}
+  .table thead th{position:sticky;top:0;z-index:1;background:#111524;color:var(--muted);font-weight:600;text-align:left;padding:12px;white-space:nowrap;border-bottom:1px solid rgba(124,92,255,.18)}
+  .table tbody td{padding:12px;border-top:1px solid rgba(124,92,255,.12);vertical-align:top}
+  .tool-cell{display:flex;align-items:center;gap:10px}
+  .features,.limits{display:flex;gap:6px;flex-wrap:wrap}
+  .features span,.limits span{background:#0e1220;border:1px solid rgba(124,92,255,.18);padding:4px 6px;border-radius:8px;font-size:12px;color:#cbd5e1}
+  .limits span{color:#fbcfe8;border-color:rgba(255,92,122,.25)}
+  .rating{display:flex;gap:6px;align-items:center;white-space:nowrap}
+  .stars{letter-spacing:1px}
+  .row-cta{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{border:none;cursor:pointer;padding:8px 12px;border-radius:10px;font-weight:700;background:linear-gradient(180deg, rgba(124,92,255,.9), rgba(124,92,255,.6));color:#fff;box-shadow:var(--shadow-1)}
+  .btn.ghost{background:#0e1220;border:1px solid rgba(124,92,255,.25);color:#fff}
+  .linklike{font-weight:700;text-decoration:underline dotted 1px; text-underline-offset:2px}
+
+  details summary{cursor:pointer;color:var(--brand-2);list-style:none}
+  details summary::-webkit-details-marker{display:none}
+
+  .compare-main .table-wrap{margin-top:6px}
+  .post{background:var(--card);border:1px solid rgba(124,92,255,.18);border-radius:var(--radius);box-shadow:var(--shadow-1);padding:16px}
+  .blog-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
+  .chip{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:#0e1220;border:1px solid rgba(124,92,255,.25);color:#cbd5e1}
+
+  footer{padding:36px 0 60px;background:var(--surface);border-top:1px solid rgba(124,92,255,.15);margin-top:30px}
+  .footer-grid{display:grid;gap:20px;grid-template-columns:1.2fr .8fr .8fr}
+
+  /* Modal */
+  .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:18px;z-index:100}
+  .modal{width:min(920px,100%);background:var(--card);border-radius:16px;border:1px solid rgba(124,92,255,.25);box-shadow:var(--shadow-2);overflow:hidden}
+  .modal header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(124,92,255,.18);background:#111524}
+  .modal .body{padding:16px;display:grid;gap:14px;grid-template-columns:1.1fr .9fr}
+  .shots{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+  .shot{height:120px;border-radius:12px;background:linear-gradient(180deg, rgba(124,92,255,.15), rgba(124,92,255,.05)),repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 2px, transparent 2px 4px);border:1px solid rgba(124,92,255,.15)}
+  .modal .bullets{display:grid;gap:8px}
+  .modal .bullets ul{margin:6px 0 0 16px;color:#cbd5e1}
+  .modal .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+
+  /* Responsive tweaks */
+  @media (max-width:980px){
+    .footer-grid{grid-template-columns:1fr}
+    .modal .body{grid-template-columns:1fr}
+    .shots{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    .hero{padding-top:42px}
+    .segmented button{padding:8px 10px}
+    .logo span{display:none}
+    .shots{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header id="home">
+  <div class="container nav">
+    <a class="logo" href="#home" aria-label="AI Tool Scout home">
+      <div class="logo-mark" aria-hidden="true"></div>
+      <span>NEXUS AI</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#comparisons">Comparisons</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#free-paid">Free vs Paid</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobileNav">☰ Menu</button>
+  </div>
+  <div class="container mobile-nav" id="mobileNav" hidden>
+    <ul>
+      <li><a href="#home" onclick="toggleMobile(false)">Home</a></li>
+      <li><a href="#comparisons" onclick="toggleMobile(false)">Comparisons</a></li>
+      <li><a href="#blog" onclick="toggleMobile(false)">Blog</a></li>
+      <li><a href="#free-paid" onclick="toggleMobile(false)">Free vs Paid</a></li>
+      <li><a href="#about" onclick="toggleMobile(false)">About</a></li>
+      <li><a href="#contact" onclick="toggleMobile(false)">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Discover The Best AI Tools for Any Task!</h1>
+    <p>Instant search with Free/Paid filters. Click a result to open details or jump straight to a category.</p>
+
+    <div class="search-wrap" role="search">
+      <div class="search" style="flex:1">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21 21l-4.2-4.2m1.2-5.8a7 7 0 11-14 0 7 7 0 0114 0z" stroke="#a3adc2" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input id="searchInput" type="search" placeholder="Search tools or categories (e.g., 'students', 'Grammarly', 'coding')" aria-autocomplete="list" aria-controls="searchResults" />
+        <!-- Live results dropdown -->
+        <div id="searchResults" class="results" role="listbox" aria-expanded="false" aria-live="polite"></div>
+      </div>
+      <div class="segmented" role="tablist" aria-label="Filter tools by price tier">
+        <button class="seg" data-tier="all" aria-pressed="true" aria-label="Show all tools">All</button>
+        <button class="seg" data-tier="free" aria-pressed="false" aria-label="Show free only">Free</button>
+        <button class="seg" data-tier="paid" aria-pressed="false" aria-label="Show paid only">Paid</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="free-paid">
+  <div class="container">
+    <h2>Free vs Paid, by Work Category</h2>
+    <p class="sub">Click a category to jump to its table. Use the filter above to show <span class="chip">Free</span>, <span class="chip">Paid</span>, or <span class="chip">All</span> tools.</p>
+    <div class="cat-grid" id="categoryGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="comparisons">
+  <div class="container" id="tablesContainer"></div>
+</section>
+
+<section class="section compare-main">
+  <div class="container">
+    <h2>All-Rounder AI Assistants (Deep Comparison)</h2>
+    <p class="sub">Great across tasks like research, drafting, brainstorming, and light media.</p>
+    <div id="mainComparison"></div>
+  </div>
+</section>
+
+<section class="section" id="blog">
+  <div class="container">
+    <h2>From the Blog</h2>
+    <p class="sub">Guides to help you choose smartly.</p>
+    <div class="blog-grid">
+      <article class="post">
+        <span class="chip">Guides</span>
+        <h4>Free vs Paid AI – Which Wins for Creators?</h4>
+        <p>We benchmarked popular tools across output quality, limits, and workflow speed. Here’s when it’s worth upgrading—and when free is enough.</p>
+        <a class="btn ghost" href="#" aria-label="Read Free vs Paid AI post">Read post</a>
+      </article>
+      <article class="post">
+        <span class="chip">Students</span>
+        <h4>Top Student AI Tools for 2025</h4>
+        <p>Note-taking, study aids, and research copilots: the best options for different majors, budgets, and device types.</p>
+        <a class="btn ghost" href="#" aria-label="Read Top Student AI Tools post">Read post</a>
+      </article>
+      <article class="post">
+        <span class="chip">Video/Animation</span>
+        <h4>From Script to Screen: AI Video & Animation Stack</h4>
+        <p>Plan, generate, and polish content faster with this modular toolkit—plus tips for staying on-brand.</p>
+        <a class="btn ghost" href="#" aria-label="Read AI Video & Animation Stack post">Read post</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <h2>About</h2>
+    <p class="sub">AI Tool Scout helps you evaluate AI products with practical comparisons. We value transparency: some links are affiliate links that help support this site at no extra cost.</p>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p class="sub">Questions or partnership requests? Write to <a href="mailto:hello@example.com">hello@example.com</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="logo" style="margin-bottom:8px;">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <span>AI Tool Scout</span>
+      </div>
+      <p style="color:var(--muted)">Actionable comparisons for students, writers, editors & creators.</p>
+      <form class="newsletter" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+        <input type="email" placeholder="Your email for updates" required aria-label="Newsletter email"/>
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div>
+      <h4 style="margin:6px 0 10px;">Legal & Disclosure</h4>
+      <p style="color:var(--muted);margin:0 0 8px;">We may earn commissions from affiliate links. Prices change—always check the vendor site for the latest details.</p>
+      <a class="pill" href="#">Affiliate Disclosure</a>
+    </div>
+    <div>
+      <h4 style="margin:6px 0 10px;">Follow</h4>
+      <p class="sub">Stay in the loop.</p>
+      <div class="row-cta">
+        <a class="btn ghost" href="#" aria-label="Follow on X/Twitter">X / Twitter</a>
+        <a class="btn ghost" href="#" aria-label="Follow on YouTube">YouTube</a>
+        <a class="btn ghost" href="#" aria-label="Follow on LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal" role="document" aria-labelledby="modalTitle">
+    <header>
+      <div class="tool-cell">
+        <div class="logo-blob" id="modalLogo">AI</div>
+        <div>
+          <strong id="modalTitle">Tool Title</strong>
+          <div id="modalBadges" style="margin-top:4px;"></div>
+        </div>
+      </div>
+      <button class="btn ghost" id="modalClose" aria-label="Close">Close</button>
+    </header>
+    <div class="body">
+      <div>
+        <div class="shots">
+          <div class="shot" aria-label="Screenshot placeholder"></div>
+          <div class="shot" aria-label="Screenshot placeholder"></div>
+          <div class="shot" aria-label="Screenshot placeholder"></div>
+          <div class="shot" aria-label="Screenshot placeholder"></div>
+        </div>
+      </div>
+      <div>
+        <div class="bullets">
+          <div><strong>Best for</strong><div id="modalUse"></div></div>
+          <div><strong>Price</strong><div id="modalPrice" class="pill" style="display:inline-block;margin-top:4px;"></div></div>
+          <div><strong>Rating</strong><div id="modalRating" class="rating" style="margin-top:4px;"></div></div>
+          <div><strong>Core Features</strong><ul id="modalFeatures"></ul></div>
+          <div><strong>Limitations</strong><ul id="modalLimits"></ul></div>
+          <div><strong>Pros</strong><ul id="modalPros"></ul></div>
+          <div><strong>Cons</strong><ul id="modalCons"></ul></div>
+          <div class="cta-row">
+            <a id="modalAffiliate" class="btn" href="#" target="_blank" rel="nofollow sponsored noopener">Get the Deal</a>
+            <button class="btn ghost" id="modalTry" type="button">Try / Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==============================================================
+   DATA LAYER (now includes official URLs)
+   ============================================================== */
+const CATEGORIES = [
+  { key:'students',      label:'For Students',      icon:'🎓' },
+  { key:'writing',       label:'Writing',           icon:'✍️' },
+  { key:'video',         label:'Video Editing',     icon:'🎬' },
+  { key:'animation',     label:'Animation',         icon:'🌀' },
+  { key:'productivity',  label:'Productivity',      icon:'⚡' },
+  { key:'coding',        label:'Coding',            icon:'💻' },
+  { key:'seo',           label:'SEO',               icon:'🔎' },
+  { key:'image',         label:'Image Tools',       icon:'🖼️' },
+  { key:'audio',         label:'Audio/Voice',       icon:'🎙️' },
+  { key:'presentations', label:'Presentations',     icon:'📊' },
+  { key:'marketing',     label:'Marketing/CRM',     icon:'📣' },
+  { key:'data',          label:'Data & Analysis',   icon:'📈' },
+];
+
+const TOOLS = [
+  /* ---------- STUDENTS ---------- */
+  {id:'notion-free',name:'Notion AI (Free)',brand:'Notion',logoText:'N',category:'students',tier:'free',price:'Included (limited AI)',
+   features:['Smart summarize','Simple rewrite','Note cleanup'],limitations:['Daily caps','Basic generation'],
+   useCase:'Class notes cleanup and quick summaries',rating:4.2,pros:['Great inside Notion','Good for organizing notes'],
+   cons:['Not a full writer','Limited daily tokens'],affiliate:null,url:'https://www.notion.so/product/ai'},
+  {id:'notion-paid',name:'Notion AI (Plus)',brand:'Notion',logoText:'N',category:'students',tier:'paid',price:'$8-$10/mo add-on',
+   features:['Summarize workspace','Brainstorm & write','Translate & tone'],limitations:['Needs Notion workspace','Not for heavy long-form'],
+   useCase:'Serious note workflows & research briefs',rating:4.5,pros:['Best integrated notes AI','Great value add-on'],
+   cons:['Locked to Notion','Less creative than top writers'],affiliate:'#',url:'https://www.notion.so/product/ai'},
+  {id:'chatgpt-free',name:'ChatGPT (Free)',brand:'ChatGPT',logoText:'G',category:'students',tier:'free',price:'$0',
+   features:['General Q&A','Drafting help','Math explainers'],limitations:['Lower model tier','Rate limits'],
+   useCase:'Everyday homework assistance',rating:4.4,pros:['Very capable for free','Huge community tips'],
+   cons:['Struggles with citations','Occasional inaccuracies'],affiliate:null,url:'https://chat.openai.com/'},
+  {id:'chatgpt-plus',name:'ChatGPT Plus',brand:'ChatGPT',logoText:'G',category:'students',tier:'paid',price:'~$20/mo',
+   features:['Stronger model','Faster responses','File & image features'],limitations:['Subscription cost','Still needs fact checking'],
+   useCase:'Research, study guides, and faster throughput',rating:4.7,pros:['Great all-rounder','Speed + reliability'],
+   cons:['Monthly cost','Occasional tool limits'],affiliate:'#',url:'https://chat.openai.com/'},
+  {id:'grammarly-free',name:'Grammarly (Free)',brand:'Grammarly',logoText:'Gm',category:'students',tier:'free',price:'$0',
+   features:['Spelling & grammar','Basic style suggestions'],limitations:['Limited tone/clarity rewrites'],useCase:'Fixing basic errors in essays',
+   rating:4.0,pros:['Ubiquitous extensions','Solid free tier'],cons:['Aggressive upsells','Conservative rewrites'],affiliate:null,url:'https://www.grammarly.com/'},
+  {id:'grammarly-prem',name:'Grammarly Premium',brand:'Grammarly',logoText:'Gm',category:'students',tier:'paid',price:'~$12-$15/mo',
+   features:['Advanced clarity','Tone rewrites','Plagiarism checks'],limitations:['Subscription cost','Not an idea generator'],
+   useCase:'Polished submissions & applications',rating:4.4,pros:['Excellent clarity boosts','Citation/plagiarism tools'],
+   cons:['Can be prescriptive','Not creative'],affiliate:'#',url:'https://www.grammarly.com/'},
+  {id:'quillbot-free',name:'QuillBot (Free)',brand:'QuillBot',logoText:'Q',category:'students',tier:'free',price:'$0',
+   features:['Basic paraphrase','Synonyms'],limitations:['Mode limits','Character caps'],useCase:'Quick paraphrasing',rating:3.9,
+   pros:['Fast','Simple'],cons:['Style can feel flat','Aggressive limits'],affiliate:null,url:'https://quillbot.com/'},
+  {id:'quillbot-prem',name:'QuillBot Premium',brand:'QuillBot',logoText:'Q',category:'students',tier:'paid',price:'~$19/mo',
+   features:['All modes','Formal/creative tones','Fewer caps'],limitations:['Over-rewrite risk','Paid wall'],
+   useCase:'Paraphrase with control over tone',rating:4.2,pros:['Flexible modes','Saves time'],cons:['Needs review','Monthly cost'],affiliate:'#',url:'https://quillbot.com/'},
+  {id:'perplexity-free',name:'Perplexity (Free)',brand:'Perplexity',logoText:'P',category:'students',tier:'free',price:'$0',
+   features:['Cited answers','Web search'],limitations:['Daily caps','Pro features locked'],useCase:'Fast, cited research starters',rating:4.4,
+   pros:['Great citations','Concise answers'],cons:['Can miss depth','Query limits'],affiliate:null,url:'https://www.perplexity.ai/'},
+  {id:'perplexity-pro',name:'Perplexity Pro',brand:'Perplexity',logoText:'P',category:'students',tier:'paid',price:'~$20/mo',
+   features:['Higher limits','Stronger models','File uploads'],limitations:['Subscription','Learning curve'],
+   useCase:'Deep research & citations',rating:4.6,pros:['Excellent for research','Reliable sourcing'],cons:['Costly if lightly used','Window limits'],affiliate:'#',url:'https://www.perplexity.ai/'},
+  {id:'sudowrite',name:'Sudowrite',brand:'Sudowrite',logoText:'Sw',category:'students',tier:'paid',price:'from ~$10/mo',
+   features:['Creative writing','Character/plot tools'],limitations:['Fiction-leaning','Less academic'],
+   useCase:'Creative assignments, narrative work',rating:4.1,pros:['Great for ideas','Fun templates'],cons:['Niche','Less formal'],affiliate:'#',url:'https://www.sudowrite.com/'},
+
+  /* ---------- WRITING ---------- */
+  {id:'jasper-free',name:'Jasper (Free trial)',brand:'Jasper',logoText:'J',category:'writing',tier:'free',price:'Trial',
+   features:['Templates','Short-form marketing','Brand voice (limited)'],limitations:['Trial only','Tighter caps'],
+   useCase:'Test marketing copy workflows',rating:4.2,pros:['Strong templates','Team features'],cons:['Trial gating','Pricing scales quickly'],affiliate:'#',url:'https://www.jasper.ai/'},
+  {id:'jasper-paid',name:'Jasper Creator',brand:'Jasper',logoText:'J',category:'writing',tier:'paid',price:'from ~$39/mo',
+   features:['Brand voice','Campaigns','Docs + chat'],limitations:['Higher starting price'],useCase:'Marketing teams & creators',
+   rating:4.5,pros:['Great for consistency','Brief-to-campaign flow'],cons:['Pricey solo','Learning curve'],affiliate:'#',url:'https://www.jasper.ai/'},
+  {id:'writesonic',name:'Writesonic',brand:'Writesonic',logoText:'Ws',category:'writing',tier:'paid',price:'from ~$20/mo',
+   features:['SEO drafts','Product copy','Image tools'],limitations:['Interface sprawl'],useCase:'E-commerce & SEO content',rating:4.2,
+   pros:['Versatile','Value-priced'],cons:['Template overload','Quality varies'],affiliate:'#',url:'https://writesonic.com/'},
+  {id:'copyai',name:'Copy.ai',brand:'Copy.ai',logoText:'Ca',category:'writing',tier:'paid',price:'from ~$49/mo',
+   features:['Workflows','Team collaboration','Brand guidelines'],limitations:['Higher price','Overkill for solo'],useCase:'Teams building repeatable flows',rating:4.1,
+   pros:['Automation focus','Good for ops'],cons:['Pricey for basics','Setup time'],affiliate:'#',url:'https://www.copy.ai/'},
+  {id:'grammarly-w',name:'Grammarly Premium',brand:'Grammarly',logoText:'Gm',category:'writing',tier:'paid',price:'~$12-$15/mo',
+   features:['Advanced edits','Style rewrites','Plagiarism'],limitations:['Not idea generator'],useCase:'Refining drafts',rating:4.4,
+   pros:['Clarity impact','Trusted'],cons:['Not creative','Sometimes rigid'],affiliate:'#',url:'https://www.grammarly.com/'},
+  {id:'quillbot-w',name:'QuillBot Premium',brand:'QuillBot',logoText:'Q',category:'writing',tier:'paid',price:'~$19/mo',
+   features:['Paraphrase modes','Citations'],limitations:['Over-paraphrase risk'],useCase:'Paraphrase + cite',rating:4.2,
+   pros:['Fast style shifts','Good value'],cons:['Needs review','Repetitive at times'],affiliate:'#',url:'https://quillbot.com/'},
+  {id:'chatgpt-w',name:'ChatGPT Plus',brand:'ChatGPT',logoText:'G',category:'writing',tier:'paid',price:'~$20/mo',
+   features:['Stronger model','Longer drafts','File tools'],limitations:['Subscription'],useCase:'General writing & ideation',rating:4.7,
+   pros:['Excellent generalist','Speed'],cons:['Hallucination risk','Needs prompts'],affiliate:'#',url:'https://chat.openai.com/'},
+  {id:'sudowrite-w',name:'Sudowrite',brand:'Sudowrite',logoText:'Sw',category:'writing',tier:'paid',price:'from ~$10/mo',
+   features:['Fiction tools','Tone styles'],limitations:['Narrow use'],useCase:'Creative writing',rating:4.1,
+   pros:['Inspires ideas','Character/plot labs'],cons:['Niche','Less factual'],affiliate:'#',url:'https://www.sudowrite.com/'},
+
+  /* ---------- VIDEO ---------- */
+  {id:'pictory',name:'Pictory',brand:'Pictory',logoText:'Pi',category:'video',tier:'paid',price:'from ~$23/mo',
+   features:['Text-to-video','Stock library','Auto captions'],limitations:['Template feel'],useCase:'Quick social videos',rating:4.1,
+   pros:['Fast','Easy UI'],cons:['Less original look','Limited control'],affiliate:'#',url:'https://pictory.ai/'},
+  {id:'synthesia',name:'Synthesia',brand:'Synthesia',logoText:'Sy',category:'video',tier:'paid',price:'from ~$22/mo',
+   features:['AI avatars','Voiceovers','Templates'],limitations:['Avatar uncanny valley'],useCase:'Training & explainer videos',rating:4.2,
+   pros:['Fast presenter videos','Multilingual'],cons:['Avatar style limits','Brand feel'],affiliate:'#',url:'https://www.synthesia.io/'},
+  {id:'runway',name:'Runway',brand:'Runway',logoText:'Rw',category:'video',tier:'paid',price:'from ~$15/mo',
+   features:['Gen-video','Motion brush','Green screen'],limitations:['Learning curve'],useCase:'Creative edits & AI shots',rating:4.5,
+   pros:['Cutting-edge','Rapid updates'],cons:['Compute limits','Export quirks'],affiliate:'#',url:'https://runwayml.com/'},
+  {id:'descript',name:'Descript',brand:'Descript',logoText:'Ds',category:'video',tier:'free',price:'Free (caps) / Paid plans',
+   features:['Text-based edit','Overdub voice'],limitations:['Free watermarks','Project caps'],useCase:'Podcasts & screens',rating:4.3,
+   pros:['Great for talk content','Good transcripts'],cons:['Buggy sometimes','Cloud reliance'],affiliate:null,url:'https://www.descript.com/'},
+  {id:'invideo',name:'InVideo',brand:'InVideo',logoText:'Iv',category:'video',tier:'paid',price:'from ~$20/mo',
+   features:['Templates','AI script','Stock media'],limitations:['Generic look risk'],useCase:'Marketing reels & ads',rating:4.0,
+   pros:['Large template library','Simple'],cons:['Similar outputs','Paywall for HQ'],affiliate:'#',url:'https://invideo.io/'},
+  {id:'veed',name:'Veed.io',brand:'Veed.io',logoText:'Vd',category:'video',tier:'paid',price:'from ~$18/mo',
+   features:['Captions','Subtitler','Templates'],limitations:['Branding on low tiers'],useCase:'Fast captions & repurposing',rating:4.1,
+   pros:['Great captioning','Easy UI'],cons:['Export limits','Branding tiers'],affiliate:'#',url:'https://www.veed.io/'},
+  {id:'lumen5',name:'Lumen5',brand:'Lumen5',logoText:'L5',category:'video',tier:'paid',price:'from ~$19/mo',
+   features:['Blog-to-video','Templates'],limitations:['Template feel'],useCase:'Content repurposing',rating:3.9,
+   pros:['Quick wins','Team friendly'],cons:['Cookie-cutter outputs','Price for teams'],affiliate:'#',url:'https://lumen5.com/'},
+  {id:'flexclip',name:'FlexClip',brand:'FlexClip',logoText:'Fx',category:'video',tier:'free',price:'Free (caps) / Paid',
+   features:['Templates','Text-to-speech','Basic edits'],limitations:['Watermarks','Lower quality on free'],useCase:'Simple quick edits',rating:3.8,
+   pros:['Easy for beginners','Web-based'],cons:['Limited control','Watermarks on free'],affiliate:null,url:'https://www.flexclip.com/'},
+
+  /* ---------- ANIMATION ---------- */
+  {id:'did',name:'D-ID',brand:'D-ID',logoText:'D',category:'animation',tier:'paid',price:'from ~$49/mo',
+   features:['Talking avatars','Lip-sync','API'],limitations:['Avatar style limits'],useCase:'Face-talk explainers',rating:4.0,
+   pros:['Quick to produce','API friendly'],cons:['Homogenous look','Costly for scale'],affiliate:'#',url:'https://www.d-id.com/'},
+  {id:'vyond',name:'Vyond',brand:'Vyond',logoText:'Vy',category:'animation',tier:'paid',price:'from ~$25/mo (annual)',
+   features:['Character animation','Templates','Lip-sync'],limitations:['Price + annual billing'],useCase:'Business explainers',rating:4.3,
+   pros:['Professional look','Libraries'],cons:['Template feel','Export limits by tier'],affiliate:'#',url:'https://www.vyond.com/'},
+  {id:'deepmotion',name:'DeepMotion Animate 3D',brand:'DeepMotion',logoText:'DM',category:'animation',tier:'paid',price:'from ~$19/mo',
+   features:['Video-to-motion','FBX export'],limitations:['Rigging knowledge'],useCase:'Motion capture for 3D',rating:4.2,
+   pros:['Great mocap value','Game engines ready'],cons:['Needs cleanup','Learning curve'],affiliate:'#',url:'https://www.deepmotion.com/animate-3d'},
+  {id:'ltx',name:'LTX Studio',brand:'LTX',logoText:'L',category:'animation',tier:'free',price:'Free (early access)',
+   features:['Storyboard to shots','Scene control'],limitations:['Early product','Compute limits'],useCase:'Concepting + previz',rating:4.1,
+   pros:['Promising controls','Fun exploration'],cons:['In flux','Export limits'],affiliate:null,url:'https://ltx.studio/'},
+  {id:'doodlemaker',name:'DoodleMaker',brand:'DoodleMaker',logoText:'Dd',category:'animation',tier:'paid',price:'One-time / bundles',
+   features:['Whiteboard animation','Text-to-doodle'],limitations:['Niche look'],useCase:'Educational whiteboard videos',rating:3.9,
+   pros:['Simple niche tool','Affordable bundles'],cons:['Outdated feel','Limited styles'],affiliate:'#',url:'https://doodlemaker.com/'},
+  {id:'animaker',name:'Animaker',brand:'Animaker',logoText:'Ak',category:'animation',tier:'paid',price:'from ~$12.5/mo (annual)',
+   features:['2D animation','Templates','Text-to-speech'],limitations:['Branding on lower tiers'],useCase:'Quick animated explainers',rating:4.0,
+   pros:['Easy start','Library assets'],cons:['Template-ish','Export limits'],affiliate:'#',url:'https://www.animaker.com/'},
+  {id:'renderforest',name:'Renderforest',brand:'Renderforest',logoText:'Rf',category:'animation',tier:'paid',price:'from ~$10/mo',
+   features:['Logo stings','Explainers','Mockups'],limitations:['Watermarks on free'],useCase:'Intros & branding packs',rating:3.9,
+   pros:['Many templates','Good for intros'],cons:['Generic if overused','Paywall for HQ'],affiliate:'#',url:'https://www.renderforest.com/'},
+
+  /* ---------- PRODUCTIVITY ---------- */
+  {id:'notion-core',name:'Notion',brand:'Notion',logoText:'N',category:'productivity',tier:'free',price:'Free / Plus',
+   features:['Notes','Databases','AI add-on'],limitations:['Learning curve'],useCase:'Unified notes & tasks',rating:4.6,
+   pros:['Flexible','Great collab'],cons:['Setup time'],affiliate:'#',url:'https://www.notion.so/'},
+  {id:'superhuman',name:'Superhuman',brand:'Superhuman',logoText:'Su',category:'productivity',tier:'paid',price:'~$30/mo',
+   features:['AI triage','Snippets','Follow-up'],limitations:['Price'],useCase:'Inbox speed for power users',rating:4.3,
+   pros:['Very fast','Shortcuts'],cons:['Expensive'],affiliate:'#',url:'https://superhuman.com/'},
+  {id:'todoist',name:'Todoist + AI',brand:'Todoist',logoText:'Td',category:'productivity',tier:'paid',price:'~$4/mo',
+   features:['Tasks','AI rewrite titles','Suggestions'],limitations:['Basic AI'],useCase:'Personal task management',rating:4.4,
+   pros:['Simple','Cross-platform'],cons:['Limited PM'],affiliate:'#',url:'https://todoist.com/'},
+
+  /* ---------- CODING ---------- */
+  {id:'copilot',name:'GitHub Copilot',brand:'Copilot',logoText:'Co',category:'coding',tier:'paid',price:'$10-$19/mo',
+   features:['Code completion','Chat','Docs grounding'],limitations:['Occasional wrong code'],useCase:'Speed up coding',rating:4.6,
+   pros:['Great IDE support','Context use'],cons:['Not a substitute for tests'],affiliate:'#',url:'https://github.com/features/copilot'},
+  {id:'codeium',name:'Codeium',brand:'Codeium',logoText:'Ci',category:'coding',tier:'free',price:'Free / Pro',
+   features:['Autocomplete','Chat'],limitations:['Feature caps free'],useCase:'Budget AI pair programming',rating:4.3,
+   pros:['Good free tier','Many IDEs'],cons:['Varying quality'],affiliate:'#',url:'https://www.codeium.com/'},
+  {id:'cursor',name:'Cursor',brand:'Cursor',logoText:'Cu',category:'coding',tier:'paid',price:'from ~$20/mo',
+   features:['Agent edits','Inline diffs'],limitations:['Editor switch'],useCase:'Agentic edits & refactors',rating:4.4,
+   pros:['Powerful edits','Good UX'],cons:['New editor'],affiliate:'#',url:'https://www.cursor.com/'},
+
+  /* ---------- SEO ---------- */
+  {id:'semrush',name:'SEMrush',brand:'SEMrush',logoText:'Sm',category:'seo',tier:'paid',price:'from ~$129/mo',
+   features:['Keyword research','Site audit','AI writing'],limitations:['Pricey'],useCase:'SEO teams & agencies',rating:4.5,
+   pros:['Deep data','All-in-one'],cons:['Expensive'],affiliate:'#',url:'https://www.semrush.com/'},
+  {id:'ahrefs',name:'Ahrefs',brand:'Ahrefs',logoText:'Ah',category:'seo',tier:'paid',price:'from ~$99/mo',
+   features:['Backlinks','Keywords','Content gap'],limitations:['Credits model'],useCase:'Backlink intel & planning',rating:4.5,
+   pros:['Great explorer','Accurate data'],cons:['Learning curve'],affiliate:'#',url:'https://ahrefs.com/'},
+  {id:'neuron',name:'NeuronWriter',brand:'Neuron',logoText:'Nw',category:'seo',tier:'paid',price:'from ~$19/mo',
+   features:['SERP analysis','Content brief','Score'],limitations:['Limited outreach'],useCase:'On-page SEO drafting',rating:4.2,
+   pros:['Affordable','Solid briefs'],cons:['Narrow focus'],affiliate:'#',url:'https://neuronwriter.com/'},
+
+  /* ---------- IMAGE ---------- */
+  {id:'canva',name:'Canva Magic Studio',brand:'Canva',logoText:'Cv',category:'image',tier:'paid',price:'from ~$12.99/mo',
+   features:['Magic Expand','Designs','Brand kit'],limitations:['Template look'],useCase:'Quick visuals & social',rating:4.5,
+   pros:['Easy','Huge library'],cons:['Generic outputs'],affiliate:'#',url:'https://www.canva.com/magic-studio/'},
+  {id:'photoshop',name:'Photoshop + Firefly',brand:'Photoshop',logoText:'Ps',category:'image',tier:'paid',price:'from ~$22/mo',
+   features:['Generative fill','Pro editing'],limitations:['Price','Learning curve'],useCase:'Professional editing',rating:4.7,
+   pros:['Industry standard','Precise control'],cons:['Heavy app'],affiliate:'#',url:'https://www.adobe.com/products/photoshop.html'},
+  {id:'gimp',name:'GIMP',brand:'GIMP',logoText:'Gi',category:'image',tier:'free',price:'$0',
+   features:['Raster editing','Plugins'],limitations:['Older UX'],useCase:'Free image editing',rating:3.9,
+   pros:['Free','Customizable'],cons:['Dated UI'],affiliate:null,url:'https://www.gimp.org/'},
+
+  /* ---------- AUDIO/VOICE ---------- */
+  {id:'eleven',name:'ElevenLabs',brand:'ElevenLabs',logoText:'11',category:'audio',tier:'paid',price:'from ~$5/mo',
+   features:['Cloned voices','Multilingual','Dubbing'],limitations:['Credits'],useCase:'Voiceovers & dubbing',rating:4.5,
+   pros:['Realistic voices','Fast'],cons:['Licensing care'],affiliate:'#',url:'https://elevenlabs.io/'},
+  {id:'audacity',name:'Audacity',brand:'Audacity',logoText:'Au',category:'audio',tier:'free',price:'$0',
+   features:['Audio edit','Effects'],limitations:['Manual workflows'],useCase:'Free podcast editing',rating:4.1,
+   pros:['Free','Lightweight'],cons:['Basic UI'],affiliate:null,url:'https://www.audacityteam.org/'},
+  {id:'adobe-podcast',name:'Adobe Podcast (Enhance)',brand:'Adobe',logoText:'AP',category:'audio',tier:'free',price:'Free / Paid',
+   features:['Speech enhance','Studio'],limitations:['Web-based caps'],useCase:'Cleanup speech quickly',rating:4.2,
+   pros:['Great cleanup','Simple'],cons:['Cloud limits'],affiliate:'#',url:'https://podcast.adobe.com/'},
+
+  /* ---------- PRESENTATIONS ---------- */
+  {id:'beautiful',name:'Beautiful.ai',brand:'Beautiful.ai',logoText:'Ba',category:'presentations',tier:'paid',price:'from ~$12/mo',
+   features:['AI slide design','Templates'],limitations:['Branding limits'],useCase:'Fast pitch decks',rating:4.2,
+   pros:['Nice designs','Speed'],cons:['Rigid layouts'],affiliate:'#',url:'https://www.beautiful.ai/'},
+  {id:'gamma',name:'Gamma',brand:'Gamma',logoText:'Ga',category:'presentations',tier:'free',price:'Free / Pro',
+   features:['Docs-to-deck','Web viewer'],limitations:['Watermark free'],useCase:'Quick concept decks',rating:4.1,
+   pros:['Fast drafting','Share links'],cons:['Branding on free'],affiliate:'#',url:'https://gamma.app/'},
+  {id:'tome',name:'Tome',brand:'Tome',logoText:'To',category:'presentations',tier:'paid',price:'from ~$10/mo',
+   features:['AI decks','Embeds','Narratives'],limitations:['Credits'],useCase:'Story-first decks',rating:4.2,
+   pros:['Easy','Modern'],cons:['Limited fine control'],affiliate:'#',url:'https://tome.app/'},
+
+  /* ---------- MARKETING/CRM ---------- */
+  {id:'hubspot',name:'HubSpot AI',brand:'HubSpot',logoText:'Hs',category:'marketing',tier:'paid',price:'Suite pricing',
+   features:['Email AI','Chatflows','CRM'],limitations:['Suite cost'],useCase:'Inbound marketing with CRM',rating:4.3,
+   pros:['All-in-one','Solid CRM'],cons:['Pricing tiers'],affiliate:'#',url:'https://www.hubspot.com/products/ai'},
+  {id:'mailchimp',name:'Mailchimp + AI',brand:'Mailchimp',logoText:'Mc',category:'marketing',tier:'paid',price:'from ~$13/mo',
+   features:['Subject AI','Journeys','Segments'],limitations:['List costs'],useCase:'Email marketing & newsletters',rating:4.1,
+   pros:['Popular','Templates'],cons:['Billing gotchas'],affiliate:'#',url:'https://mailchimp.com/'},
+
+  /* ---------- DATA & ANALYSIS ---------- */
+  {id:'tabnine-qa',name:'Chat with CSV (Open-Source)',brand:'CSV Chat',logoText:'Cs',category:'data',tier:'free',price:'$0',
+   features:['Local CSV QA','Embeddings'],limitations:['Setup time'],useCase:'Ask data questions locally',rating:3.9,
+   pros:['Private','Free'],cons:['DIY'],affiliate:null /* url absent -> will fallback */},
+  {id:'sheetai',name:'SheetAI / GPT for Sheets',brand:'SheetAI',logoText:'Sh',category:'data',tier:'paid',price:'from ~$10/mo',
+   features:['=AI() formulas','Bulk ops'],limitations:['Spreadsheet only'],useCase:'Spreadsheet AI tasks',rating:4.2,
+   pros:['Great for Sheets','Easy'],cons:['Limited scope'],affiliate:'#',url:'https://www.sheetai.app/'},
+];
+
+/* All-rounder comparison (with URLs) */
+const MAIN_COMPARISON = [
+  {id:'main-chatgpt',name:'ChatGPT Plus',logoText:'G',price:'~$20/mo',
+   shinesAt:['General writing','Research','Brainstorming','Code help'],watchouts:['Fact-check important claims','Monthly cost'],rating:4.7,affiliate:'#',url:'https://chat.openai.com/'},
+  {id:'main-claude',name:'Claude Pro',logoText:'Cl',price:'~$20/mo',
+   shinesAt:['Reasoning on long docs','Safer tone','Brainstorms'],watchouts:['Country availability','Throughput limits'],rating:4.6,affiliate:'#',url:'https://claude.ai/'},
+  {id:'main-gemini',name:'Gemini Advanced',logoText:'Ge',price:'~$20/mo (via Google One)',
+   shinesAt:['Docs/Sheets integrations','Search context'],watchouts:['UI changes frequently','Latency spikes at times'],rating:4.4,affiliate:'#',url:'https://one.google.com/ai/gemini-advanced'},
+  {id:'main-notion',name:'Notion AI (Plus)',logoText:'N',price:'$8-$10/mo add-on',
+   shinesAt:['Notes & docs summarization','Workspace drafting'],watchouts:['Best only if you use Notion','Creative limits'],rating:4.5,affiliate:'#',url:'https://www.notion.so/product/ai'},
+];
+
+/* ==============================================================
+   HELPERS
+   ============================================================== */
+const $ = (sel, root=document) => root.querySelector(sel);
+const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+function stars(r){ const f=Math.floor(r),h=r-f>=.5; return `<span class="stars">`+'★'.repeat(f)+(h?'½':'')+'☆'.repeat(5-f-(h?1:0))+`</span><span style="color:var(--muted);font-size:12px;">${r.toFixed(1)}</span>`; }
+function svgDollar(){return `<svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 7c0-2-2.2-3-5-3S7 5 7 7s1.5 3 5 4 5 2 5 4-2.2 3-5 3-5-1-5-3" stroke="#e9d5ff" stroke-width="2" stroke-linecap="round"/></svg>`}
+function svgCheck(){return `<svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#a7f3d0" stroke-width="2" stroke-linecap="round"/></svg>`}
+function badge(tier){ const f=tier==='free'; return `<span class="badge ${f?'free':'paid'}">${f?svgCheck():svgDollar()} ${f?'FREE':'PAID'}</span>`; }
+function categoryLabel(key){ const m=CATEGORIES.find(c=>c.key===key); return m?m.label:key; }
+function openWebSearch(q){ const url = 'https://www.google.com/search?q=' + encodeURIComponent(q.trim() + ' official'); window.open(url, '_blank', 'noopener'); }
+function debounce(fn, delay=200){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), delay); }; }
+function officialUrl(t){ return t?.url || ('https://www.google.com/search?q=' + encodeURIComponent(`${t?.name||'AI tool'} official`)); }
+
+/* ==============================================================
+   CATEGORY GRID & TABLES
+   ============================================================== */
+function renderCategoryGrid(){
+  const grid = $('#categoryGrid');
+  grid.innerHTML = CATEGORIES.map(c=>`
+    <div class="cat" data-category="${c.key}" tabindex="0" role="button" aria-label="Filter ${c.label}">
+      <div class="icon">${c.icon}</div>
+      <div><span>${c.label}</span><div style="color:var(--muted);font-size:12px;">Click to jump & filter</div></div>
+    </div>`).join('');
+  $$('#categoryGrid .cat').forEach(el=>{
+    el.addEventListener('click', ()=>jumpToCategory(el.dataset.category));
+    el.addEventListener('keydown',(e)=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();jumpToCategory(el.dataset.category);} });
+  });
+}
+function jumpToCategory(catKey){
+  const section = document.getElementById(`table-${catKey}`);
+  if(section){ section.scrollIntoView({behavior:'smooth',block:'start'}); }
+  $('#searchInput').value = catKey; handleSearchInput(true);
+}
+function getCurrentTier(){ const pressed=$$('.seg').find(b=>b.getAttribute('aria-pressed')==='true'); return pressed?pressed.dataset.tier:'all'; }
+function setTier(tier){ $$('.seg').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.tier===tier))); try{ localStorage.setItem('nexus_tier', tier); }catch(e){} }
+
+function getCurrentQuery(){ return $('#searchInput').value.trim().toLowerCase(); }
+function filterMatches(tool, q){
+  if(!q) return true;
+  const hay=[tool.name,tool.brand,tool.category,tool.tier,...(tool.features||[]),...(tool.limitations||[]),tool.useCase||''].join(' ').toLowerCase();
+  return hay.includes(q);
+}
+function verdictText(category, items, tierFilter='all'){
+  const pool=items.filter(i=>tierFilter==='all'?true:i.tier===tierFilter);
+  if(!pool.length) return 'No tools match this filter.';
+  const prefFree = category==='students';
+  const sorted=[...pool].sort((a,b)=> b.rating-a.rating || (prefFree?(a.tier==='free'?-1:1):(a.tier==='paid'?-1:1)));
+  const top=sorted[0]; return `For <strong>${categoryLabel(category)}</strong>, <strong>${top.name}</strong> is a great pick for <em>${top.useCase}</em>.`;
+}
+
+function rowHTML(t){
+  const link = officialUrl(t);
+  const brandBlock = `
+    <div>
+      <div style="font-weight:700;">
+        <a class="linklike" href="${link}" target="_blank" rel="noopener nofollow">${t.brand}</a>
+      </div>
+      <button class="btn ghost open-modal" data-id="${t.id}" style="padding:4px 8px;font-size:12px;margin-top:6px;">Details</button>
+    </div>`;
+
+  const officialBtn = `<a class="btn" href="${link}" target="_blank" rel="noopener nofollow">Official</a>`;
+  const dealBtn = t.affiliate ? `<a class="btn" href="${t.affiliate}" target="_blank" rel="nofollow sponsored noopener">Deal</a>` : '';
+
+  return `
+  <tr>
+    <td class="tool-cell">
+      <div class="logo-blob" aria-hidden="true">${t.logoText||'AI'}</div>
+      ${brandBlock}
+    </td>
+    <td>${badge(t.tier||'paid')}</td>
+    <td><span class="pill">${t.price||'Varies'}</span></td>
+    <td class="features">${(t.features||[]).map(f=>`<span>${f}</span>`).join('')}</td>
+    <td class="limits">${(t.limitations||[]).map(l=>`<span>${l}</span>`).join('')}</td>
+    <td>${t.useCase||'General'}</td>
+    <td class="rating">${stars(t.rating||4.4)}</td>
+    <td>
+      <details><summary>Quick view</summary>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;">
+          <ul style="margin:0 0 0 16px;color:#a7f3d0;">${(t.pros||[]).map(p=>`<li>${p}</li>`).join('')}</ul>
+          <ul style="margin:0 0 0 16px;color:#fecaca;">${(t.cons||[]).map(c=>`<li>${c}</li>`).join('')}</ul>
+        </div>
+      </details>
+    </td>
+    <td class="row-cta">${officialBtn}${dealBtn?` ${dealBtn}`:''}</td>
+  </tr>`; }
+
+function tableHTML(categoryKey, items, verdict){
+  return `
+  <article class="table-wrap" id="table-${categoryKey}">
+    <header><h3>${categoryLabel(categoryKey)}</h3><div class="verdict">${verdict}</div></header>
+    <div style="overflow:auto;">
+      <table class="table" aria-label="${categoryLabel(categoryKey)} comparison">
+        <thead>
+          <tr><th>Tool</th><th>Plan</th><th>Price</th><th>Core features</th><th>Limitations</th><th>Best use case</th><th>Ratings</th><th>Pros &amp; Cons</th><th>Links</th></tr>
+        </thead>
+        <tbody>${items.length?items.map(rowHTML).join(''):`<tr><td colspan="9" style="color:var(--muted);padding:18px;">No tools match your filters here.</td></tr>`}</tbody>
+      </table>
+    </div>
+  </article>`; }
+
+function renderTables(){
+  const container = $('#tablesContainer');
+  const tier = getCurrentTier();
+  const q = getCurrentQuery();
+  const cats = CATEGORIES.map(c=>c.key);
+  container.innerHTML = cats.map(cat=>{
+    const items = TOOLS.filter(t=>t.category===cat)
+      .filter(t=>tier==='all'?true:t.tier===tier)
+      .filter(t=>filterMatches(t,q));
+    return tableHTML(cat, items, verdictText(cat, TOOLS.filter(t=>t.category===cat), tier));
+  }).join('');
+  $$('#tablesContainer .open-modal').forEach(btn=>btn.addEventListener('click', ()=>openModal(btn.dataset.id)));
+}
+
+/* ==============================================================
+   MAIN COMPARISON
+   ============================================================== */
+function renderMainComparison(){
+  const host = $('#mainComparison');
+  host.innerHTML = `
+  <article class="table-wrap">
+    <header><h3>Top Picks</h3>
+      <div class="verdict">Best overall: <strong>ChatGPT Plus</strong> for general use; <strong>Claude Pro</strong> for thoughtful long-doc work.</div>
+    </header>
+    <div style="overflow:auto;">
+      <table class="table" aria-label="All-rounder AI assistants">
+        <thead><tr><th>Tool</th><th>Price</th><th>Shines at</th><th>Watch-outs</th><th>Rating</th><th>Links</th></tr></thead>
+        <tbody>
+          ${MAIN_COMPARISON.map(m=>`
+            <tr>
+              <td class="tool-cell"><div class="logo-blob">${m.logoText}</div>
+                <div>
+                  <div style="font-weight:700;"><a class="linklike" href="${officialUrl(m)}" target="_blank" rel="noopener nofollow">${m.name}</a></div>
+                  <button class="btn ghost open-modal" data-id="${m.id}" style="padding:4px 8px;font-size:12px;margin-top:6px;">Details</button>
+                </div>
+              </td>
+              <td><span class="pill">${m.price}</span></td>
+              <td class="features">${m.shinesAt.map(s=>`<span>${s}</span>`).join('')}</td>
+              <td class="limits">${m.watchouts.map(w=>`<span>${w}</span>`).join('')}</td>
+              <td class="rating">${stars(m.rating)}</td>
+              <td class="row-cta">
+                <a class="btn" href="${officialUrl(m)}" target="_blank" rel="noopener nofollow">Official</a>
+                ${m.affiliate?` <a class="btn" href="${m.affiliate}" target="_blank" rel="nofollow sponsored noopener">Deal</a>`:''}
+              </td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+  </article>`;
+  $$('#mainComparison .open-modal').forEach(btn=>btn.addEventListener('click', ()=>openModal(btn.dataset.id)));
+}
+
+/* ==============================================================
+   MODAL
+   ============================================================== */
+function findAnyToolById(id){ return TOOLS.find(t=>t.id===id) || MAIN_COMPARISON.find(m=>m.id===id); }
+function openModal(id){
+  const t=findAnyToolById(id); if(!t) return;
+  $('#modalTitle').textContent = t.name;
+  $('#modalLogo').textContent = t.logoText || 'AI';
+  const price = t.price || 'Varies'; $('#modalPrice').textContent = price;
+  const features = t.features || t.shinesAt || [];
+  const limits   = t.limitations || t.watchouts || [];
+  const pros     = t.pros || (t.shinesAt?['Versatile',...t.shinesAt.slice(0,2)]:[]);
+  const cons     = t.cons || t.watchouts || [];
+  const use      = t.useCase || (t.shinesAt ? t.shinesAt[0] : 'General productivity');
+
+  $('#modalUse').textContent = use;
+  $('#modalRating').innerHTML = stars(t.rating || 4.4);
+  $('#modalFeatures').innerHTML = features.map(f=>`<li>${f}</li>`).join('');
+  $('#modalLimits').innerHTML = limits.map(l=>`<li>${l}</li>`).join('');
+  $('#modalPros').innerHTML = pros.map(p=>`<li>${p}</li>`).join('');
+  $('#modalCons').innerHTML = cons.map(c=>`<li>${c}</li>`).join('');
+  $('#modalBadges').innerHTML = ('tier' in t ? badge(t.tier) : '') + ` <span class="pill">${price}</span>`;
+
+  const aff=t.affiliate||'#', affBtn=$('#modalAffiliate');
+  if(aff && aff!=='#'){ affBtn.href=aff; affBtn.removeAttribute('disabled'); } else { affBtn.href='#'; affBtn.setAttribute('disabled','true'); }
+  $('#modalTry').onclick = ()=>window.open(officialUrl(t),'_blank','noopener');
+
+  const bd=$('#modalBackdrop'); bd.style.display='flex'; bd.setAttribute('aria-hidden','false');
+  setTimeout(()=>$('#modalClose').focus(),0);
+}
+function closeModal(){ const bd=$('#modalBackdrop'); bd.style.display='none'; bd.setAttribute('aria-hidden','true'); }
+$('#modalClose').addEventListener('click', closeModal);
+$('#modalBackdrop').addEventListener('click', e=>{ if(e.target.id==='modalBackdrop') closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ==============================================================
+   LIVE SEARCH: results list + keyboard
+   ============================================================== */
+let activeIndex = -1;
+function buildResultItemHTML(item){
+  if(item.kind==='category'){
+    const cat=CATEGORIES.find(c=>c.key===item.key);
+    return `<div class="result-item" role="option" data-kind="category" data-key="${item.key}">
+      <div class="logo-blob" aria-hidden="true">${cat?.icon||'🔎'}</div>
+      <div><div><strong>${cat?.label||item.key}</strong></div><div class="result-kind">Category</div></div>
+    </div>`;
+  } else if(item.kind==='web'){
+    const qText = item.querySafe;
+    return `<div class="result-item" role="option" data-kind="web">
+      <div class="logo-blob">🌐</div>
+      <div>
+        <div><strong>Search the web for “${qText}”</strong></div>
+        <div class="result-kind">Open Google results in a new tab</div>
+      </div>
+    </div>`;
+  } else {
+    const t=item.tool;
+    return `<div class="result-item" role="option" data-kind="tool" data-id="${t.id}">
+      <div class="logo-blob">${t.logoText||'AI'}</div>
+      <div>
+        <div><strong>${t.name}</strong> • <span style="color:var(--muted)">${categoryLabel(t.category)}</span></div>
+        <div class="result-kind">${badge(t.tier)} &nbsp; <span class="pill">${t.price||'Varies'}</span></div>
+      </div>
+    </div>`;
+  }
+}
+function updateSearchResults(){
+  const box = $('#searchResults');
+  const q = getCurrentQuery();
+  const tier = getCurrentTier();
+
+  if(!q){ box.setAttribute('aria-expanded','false'); box.innerHTML=''; activeIndex=-1; return; }
+
+  const catMatches = CATEGORIES.filter(c => c.label.toLowerCase().includes(q) || c.key.includes(q))
+                      .slice(0,5).map(c=>({kind:'category',key:c.key}));
+
+  const toolMatches = TOOLS.filter(t => (tier==='all'?true:t.tier===tier) && filterMatches(t,q))
+                      .slice(0,10).map(t=>({kind:'tool',tool:t}));
+
+  const querySafe = q.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const webAction = [{kind:'web', querySafe}];
+
+  const results = [...catMatches, ...toolMatches, ...webAction];
+
+  box.innerHTML = results.map(buildResultItemHTML).join('');
+  box.setAttribute('aria-expanded','true');
+  activeIndex = -1;
+
+  $$('#searchResults .result-item').forEach((el,idx)=>{ el.addEventListener('click',()=>activateResult(idx)); });
+}
+function highlightResult(newIndex){
+  const items = $$('#searchResults .result-item');
+  items.forEach(el=>el.setAttribute('aria-selected','false'));
+  if(newIndex>=0 && newIndex<items.length){
+    items[newIndex].setAttribute('aria-selected','true');
+    items[newIndex].scrollIntoView({block:'nearest'});
+  }
+  activeIndex = newIndex;
+}
+function activateResult(index){
+  const items = $$('#searchResults .result-item');
+  if(!items.length) return;
+  const el = items[Math.max(0, index)];
+  const kind = el.getAttribute('data-kind');
+  if(kind==='category'){
+    const key = el.getAttribute('data-key');
+    jumpToCategory(key);
+  }else if(kind==='tool'){
+    const id = el.getAttribute('data-id');
+    openModal(id);
+  }else if(kind==='web'){
+    const q = getCurrentQuery();
+    if(q) openWebSearch(q);
+  }
+  $('#searchResults').setAttribute('aria-expanded','false');
+}
+function handleSearchInput(skipDropdownClose){
+  renderTables();
+  updateSearchResults();
+  try{ localStorage.setItem('nexus_query', getCurrentQuery()); }catch(e){}
+  if(!skipDropdownClose){ /* noop */ }
+}
+
+/* Keyboard support + debounce */
+$('#searchInput').addEventListener('keydown', (e)=>{
+  const items = $$('#searchResults .result-item');
+  if(e.key==='ArrowDown'){ e.preventDefault(); if(!items.length) return; highlightResult(Math.min(activeIndex+1, items.length-1)); }
+  if(e.key==='ArrowUp'){ e.preventDefault(); if(!items.length) return; highlightResult(Math.max(activeIndex-1, 0)); }
+  if(e.key==='Enter'){
+    const dropdownOpen = $('#searchResults').getAttribute('aria-expanded')==='true';
+    if(dropdownOpen && items.length){ e.preventDefault(); activateResult(activeIndex>=0?activeIndex:0); return; }
+    const q = getCurrentQuery(); if(q){ e.preventDefault(); openWebSearch(q); }
+  }
+  if(e.key==='Escape'){ $('#searchResults').setAttribute('aria-expanded','false'); activeIndex=-1; }
+});
+const handleSearchDebounced = debounce(()=>handleSearchInput(), 180);
+$('#searchInput').addEventListener('input', handleSearchDebounced);
+
+/* Click-off to close dropdown */
+document.addEventListener('click', (e)=>{
+  const results=$('#searchResults'); const searchBox=$('.search');
+  if(!searchBox.contains(e.target)){ results.setAttribute('aria-expanded','false'); }
+});
+
+/* Global tier filter buttons */
+$$('.seg').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    setTier(btn.dataset.tier);
+    renderTables();
+    updateSearchResults();
+  });
+});
+
+/* ==============================================================
+   NAV & INIT
+   ============================================================== */
+function toggleMobile(force){
+  const btn=$('#hamburger'); const nav=$('#mobileNav');
+  const show= typeof force==='boolean'?force:(btn.getAttribute('aria-expanded')!=='true');
+  btn.setAttribute('aria-expanded', String(show)); nav.hidden=!show; nav.style.display=show?'block':'none';
+}
+$('#hamburger').addEventListener('click', ()=>toggleMobile());
+
+function boot(){
+  renderCategoryGrid();
+  try{
+    const savedTier = localStorage.getItem('nexus_tier');
+    const savedQuery = localStorage.getItem('nexus_query');
+    if(savedTier && ['all','free','paid'].includes(savedTier)) setTier(savedTier);
+    if(savedQuery){ $('#searchInput').value = savedQuery; }
+  }catch(e){}
+  renderTables();
+  renderMainComparison();
+  updateSearchResults();
+}
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZygoMedia — Light Hero Prototype</title>
+
+  <!-- Fonts: Playfair Display (display) + Inter (UI) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Palette — light theme */
+      --bg: #fbfbfd;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --text: #0b1220;
+      --accent-a: #7A1CF4; /* purple */
+      --accent-b: #3355FF; /* blue */
+      --accent-c: #00E8C6; /* mint */
+      --glass: rgba(15,23,42,0.04);
+      --radius: 14px;
+      --shadow-sm: 0 6px 20px rgba(26, 32, 44, 0.06);
+      --shadow-lg: 0 28px 60px rgba(26, 32, 44, 0.10);
+      --max-width: 1180px;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{width:100%; max-width:var(--max-width);}
+
+    /* Top nav */
+    nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:8px 4px; margin-bottom:18px;
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{
+      width:44px; height:44px; border-radius:10px;
+      background:linear-gradient(135deg,var(--accent-a), var(--accent-b));
+      box-shadow: var(--shadow-sm);
+      display:flex; align-items:center; justify-content:center; color:white; font-weight:700;
+      font-family: "Playfair Display", serif;
+    }
+    .brand h4{margin:0; font-size:16px; font-weight:700}
+
+    .navlinks{display:flex; gap:18px; align-items:center; color:var(--muted); font-weight:600; font-size:14px}
+    .navlinks a{color:var(--muted); text-decoration:none}
+
+    /* Hero layout */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 480px;
+      gap:28px;
+      align-items:center;
+      background:linear-gradient(180deg, rgba(250,250,253,1), rgba(247,246,255,1));
+      padding:28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      overflow:visible;
+    }
+
+    /* Big display word (left, like the reference) */
+    .hero-left{
+      position:relative; padding:8px 0 8px 12px;
+    }
+    .bigword{
+      font-family: "Playfair Display", serif;
+      font-size:140px;
+      line-height:0.85;
+      color:rgba(10,10,10,0.06);
+      letter-spacing:4px;
+      margin:0 0 12px 0;
+      user-select:none;
+    }
+
+    /* content area on hero-left */
+    .hero-content{
+      max-width:650px;
+      margin-top:-24px; /* tuck under the big word */
+    }
+    .kicker{font-size:12px; font-weight:700; color:var(--accent-a); letter-spacing:1px; margin-bottom:10px}
+    h1{
+      margin:0 0 12px 0;
+      font-size:34px;
+      line-height:1.04;
+      font-weight:700;
+      letter-spacing:-0.4px;
+      color:var(--text);
+    }
+    p.lead{color:var(--muted); margin:0 0 18px 0; font-size:15px}
+
+    .hero-actions{display:flex; gap:12px; align-items:center}
+    .btn{
+      padding:12px 16px; border-radius:12px; cursor:pointer; border:1px solid transparent; font-weight:700;
+      box-shadow:var(--shadow-sm);
+    }
+    .btn.primary{
+      background:linear-gradient(90deg,var(--accent-a),var(--accent-b));
+      color:#fff;
+      border-color:transparent;
+    }
+    .btn.ghost{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(15,23,42,0.06);
+    }
+
+    /* right side hero card (image + floating shapes) */
+    .hero-right{
+      position:relative; display:flex; align-items:center; justify-content:center;
+      min-height:360px;
+    }
+    .device-card{
+      width:420px; height:320px; border-radius:18px;
+      background:linear-gradient(135deg,#fff,#f6f8ff);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 20px 50px rgba(50,60,80,0.08);
+      position:relative; overflow:visible;
+    }
+    .device-img{
+      width:86%; height:86%; border-radius:12px;
+      background:linear-gradient(135deg,var(--accent-b), var(--accent-c));
+      display:flex; align-items:center; justify-content:center; color:white; font-weight:800;
+      font-family:Inter;
+      transform:translateY(4px) rotate(-4deg);
+      box-shadow: 0 10px 30px rgba(51,85,255,0.12);
+    }
+
+    /* floating shapes (subtle, inspired by the reference) */
+    .floating{
+      position:absolute; border-radius:999px; filter:blur(4px); opacity:0.95; mix-blend-mode:screen;
+      transform:translateZ(0);
+      animation:float 6s ease-in-out infinite;
+    }
+    .float-1{width:120px; height:120px; right:24px; top:12%; background:linear-gradient(135deg,var(--accent-a),var(--accent-c)); animation-delay:0s}
+    .float-2{width:64px; height:64px; right:110px; top:42%; background:linear-gradient(135deg,var(--accent-b),var(--accent-c)); animation-delay:1.3s}
+    .float-3{width:90px; height:90px; left:6%; bottom:18%; background:linear-gradient(135deg,var(--accent-c),var(--accent-a)); animation-delay:0.7s}
+    @keyframes float { 0%{transform:translateY(0) translateX(0)} 50%{transform:translateY(-10px) translateX(6px)} 100%{transform:translateY(0) translateX(0)} }
+
+    /* features row */
+    .features{
+      display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;
+    }
+    .feature{
+      background:var(--card); border-radius:12px; padding:14px; min-width:200px; box-shadow:var(--shadow-sm);
+      display:flex; gap:12px; align-items:flex-start; flex:1;
+    }
+    .feature .icon{
+      width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,var(--accent-a),var(--accent-b)); color:white;
+      display:grid; place-items:center; font-weight:800;
+    }
+    .feature h5{margin:0; font-size:15px}
+    .feature p{margin:6px 0 0 0; color:var(--muted); font-size:13px}
+
+    /* responsive */
+    @media (max-width:1080px){
+      .hero{grid-template-columns:1fr 380px}
+      .bigword{font-size:110px}
+    }
+    @media (max-width:840px){
+      .hero{grid-template-columns:1fr; padding:18px}
+      .hero-right{order:-1; margin-bottom:6px}
+      .bigword{font-size:84px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- nav -->
+    <nav>
+      <div class="brand">
+        <div class="logo">Zy</div>
+        <div>
+          <h4>ZygoMedia</h4>
+          <div style="font-size:12px; color:var(--muted)">Creators • Brands • Collab</div>
+        </div>
+      </div>
+      <div class="navlinks">
+        <a href="#">Technology</a>
+        <a href="#">Models</a>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#" class="ghost-link">Support</a>
+      </div>
+    </nav>
+
+    <!-- hero -->
+    <section class="hero" aria-label="Hero section">
+      <div class="hero-left">
+        <div class="bigword" aria-hidden="true">REALIGN</div>
+
+        <div class="hero-content">
+          <div class="kicker">ZENOVA Z7 PRO XR</div>
+          <h1>Experience worlds beyond imagination</h1>
+          <p class="lead">
+            A creator-first platform that connects brands and creators — powered by smart boosts, campaign tools,
+            and transparent escrow. Design collaborations, amplify content, and measure reach with clear analytics.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn primary" id="ctaPrimary">Start a Campaign</button>
+            <button class="btn ghost" id="ctaSecondary">Explore Features</button>
+          </div>
+
+          <div class="features" style="margin-top:20px">
+            <div class="feature">
+              <div class="icon">AI</div>
+              <div>
+                <h5>AI Trend Boosts</h5>
+                <p>Auto-optimize posts for formats & hashtags that convert.</p>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="icon">⚖</div>
+              <div>
+                <h5>Safe Escrow</h5>
+                <p>Built-in secure payments and vouch system for trust.</p>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="icon">🔍</div>
+              <div>
+                <h5>Smart Matchmaking</h5>
+                <p>Find brand-fit creators with engagement-first filters.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="device-card" role="img" aria-label="Product mockup">
+          <div class="device-img">VR MOCKUP</div>
+        </div>
+
+        <!-- decorative floats -->
+        <div class="floating float-1" aria-hidden="true"></div>
+        <div class="floating float-2" aria-hidden="true"></div>
+        <div class="floating float-3" aria-hidden="true"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // small interactions to make it feel alive
+    document.getElementById('ctaPrimary').addEventListener('click', ()=> {
+      const btn = document.getElementById('ctaPrimary');
+      btn.disabled = true;
+      btn.style.transform = 'translateY(1px) scale(.995)';
+      setTimeout(()=> {
+        btn.disabled = false;
+        btn.style.transform = '';
+        alert('Starter campaign created — this is a demo response.');
+      }, 900);
+    });
+
+    document.getElementById('ctaSecondary').addEventListener('click', ()=> {
+      window.scrollTo({ top: 700, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
